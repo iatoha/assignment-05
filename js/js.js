@@ -1,35 +1,35 @@
-const seat = document.getElementsByClassName('btnKey')
+const seat = document.getElementsByClassName('buttonKey')
 let seatCount = 0
 let available = 40;
 let totalPrice = 0;
 let grandTotalc = 0;
 for (let index = 0; index < seat.length; index++) {
-    const btnKey = seat[index];
-    // console.log(btnKey)
-    btnKey.addEventListener('click' , function () {
+    const buttonKey = seat[index];
+    // console.log(buttonKey)
+    buttonKey.addEventListener('click' , function () {
         if (seatCount >= 4) {
             alert("You can only select up to 4 seats.");
             return;
         }
         
-        if (btnKey.classList.contains('bg-[#1DD100]')) {
+        if (buttonKey.classList.contains('bg-[#1DD100]')) {
             return;
         }
-        btnKey.classList.add('bg-[#1DD100]');
+        buttonKey.classList.add('bg-[#1DD100]');
 
-        const totalSeat = document.getElementById('available-sit');
+        const totalSeat = document.getElementById('available-seat');
         available = available - 1;
         totalSeat.innerText = parseInt(available);
         
-        const sitBooking = document.getElementById('sit-booking');
+        const seatBooking = document.getElementById('seat-booking');
         seatCount = seatCount + 1;
-        sitBooking.innerText = parseInt(seatCount);
+        seatBooking.innerText = parseInt(seatCount);
 
 
-        const seatName = btnKey.innerHTML;
+        const seatName = buttonKey.innerHTML;
         const economy = 'Economy'
         const price = parseFloat("550")
-        const seatInfo = document.getElementById('keyPress')
+        const seatInfo = document.getElementById('keyPressed')
         const p1 = document.createElement('p')
         p1.innerText = seatName
         seatInfo.appendChild(p1)
@@ -41,7 +41,7 @@ for (let index = 0; index < seat.length; index++) {
         seatInfo.appendChild(p3)
         totalPrice += price
         document.getElementById('totalAmount').innerText = totalPrice
-        document.getElementById('grandTotalPrice').innerText = totalPrice
+        document.getElementById('grandTotalAmount').innerText = totalPrice
         
         if (seatCount === 4) {
             const couponFilter = document.getElementById('inputField');
@@ -55,7 +55,7 @@ for (let index = 0; index < seat.length; index++) {
 
                 const discountElement = document.getElementById('discountPrice');
                 const totalPrice = parseInt(document.getElementById('totalAmount').innerText);
-                const grandTotal = document.getElementById('grandTotalPrice');
+                const grandTotal = document.getElementById('grandTotalAmount');
                 if (code === 'NEW15') {
                     discount = totalPrice * 0.15;
                     discountElement.innerText = 'Discount : ' + discount;
@@ -67,7 +67,7 @@ for (let index = 0; index < seat.length; index++) {
                 } else {
                     alert('Discount code is not available');
                 }
-                const codeBtn = document.getElementById('code-btn');
+                const codeBtn = document.getElementById('code-button');
                 codeBtn.classList.add('hidden');
             });
         }
@@ -76,10 +76,10 @@ for (let index = 0; index < seat.length; index++) {
 }
 
 
-const numberField = document.getElementById('number-field');
+const numberField = document.getElementById('num-field');
 numberField.addEventListener('keyup', function (e) {
     const number = e.target.value;
-    const nextBtn = document.getElementById('next-btn');
+    const nextBtn = document.getElementById('next-button');
     if (number !== '') {
         nextBtn.removeAttribute('disabled');
     } else {
@@ -88,24 +88,20 @@ numberField.addEventListener('keyup', function (e) {
     }
 });
 
-const nextBtn = document.getElementById('next-btn');
+const nextBtn = document.getElementById('next-button');
 nextBtn.addEventListener('click', function () {
-    const congratulation = document.getElementById('congratulation');
+    const congratulation = document.getElementById('congratulations');
     congratulation.classList.remove('hidden');
-    // const header = document.getElementById('headerSection')
-    // header.classList.add('hidden');
-    // const main = document.getElementById('mainSection')
-    // main.classList.add('hidden');
 });
 function Continue() {
-    const numberField = document.getElementById('number-field');
-    const nextBtn = document.getElementById('next-btn');
+    const numberField = document.getElementById('num-field');
+    const nextBtn = document.getElementById('next-button');
     numberField.value = '';
     const nameField = document.getElementById('name-field');
     nameField.value = '';
     const emailField = document.getElementById('email-field');
     emailField.value = '';
     nextBtn.setAttribute('disabled', true);
-    const congratulation = document.getElementById('congratulation')
+    const congratulation = document.getElementById('congratulations')
     congratulation.classList.add('hidden');
 }
