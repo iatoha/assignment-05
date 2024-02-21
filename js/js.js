@@ -12,7 +12,7 @@ for (const btn of allBtn) {
         e.target.style.backgroundColor = "#1DD100";
        const btnValue = e.target.innerText;
        
-        // decrement Seat count section
+        // seat count section
         const decrementCount = parseInt(document.getElementById('seat-count-decremented').innerText)
         const decri = decrementCount - count;
         document.getElementById('seat-count-decremented').innerText = decri;
@@ -20,7 +20,7 @@ for (const btn of allBtn) {
         const orederSit = parseInt(document.getElementById('seat-counting').innerText);
         const increment = orederSit + count
         document.getElementById('seat-counting').innerText = increment;
-        // Append Html 
+        // Append
         
        const selectedItem =  document.getElementById('appending')
         const li = document.createElement('li')
@@ -34,8 +34,6 @@ for (const btn of allBtn) {
         document.getElementById('totalValue').innerText = total
         document.getElementById('grand-total-amount').innerText = total
         
-        // const nextBtn = document.getElementById('next-btn');
-        // nextBtn.removeAttribute('disabled')
         sum++;
         if(sum ==4){
             const apply_Btn = document.getElementById('Apply');
@@ -69,16 +67,16 @@ applyBtn.addEventListener('click', function(e){
 
 })
 const numbers = document.getElementById('number')
-        // console.log(numbers.target);
+
         numbers.addEventListener('input',function nextSection(e){
             
             if (e.target.value > 0 && sum >0) {
-                const nextBtn = document.getElementById('next-btn');
+                const nextBtn = document.getElementById('next-button');
                 nextBtn.removeAttribute('disabled')
             }
         })
 
-const modal = document.getElementById('next-btn')
-const relodes = document.getElementById('relod').addEventListener('click' , function(e){
+const modal = document.getElementById('next-button')
+const relodes = document.getElementById('reloading').addEventListener('click' , function(e){
     window.location.reload();
 })
